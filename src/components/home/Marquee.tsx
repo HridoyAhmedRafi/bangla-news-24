@@ -1,0 +1,27 @@
+import { IMarqueeLinks } from "@/types/marqueeLinks";
+import MarqueeText from "react-marquee-text";
+import "react-marquee-text/dist/styles.css";
+
+const Marquee = async () => {
+  const res = await fetch("https://news-api-v2.vercel.app/api/news?limit=10");
+  const data = await res.json();
+  const marqueeDataList: IMarqueeLinks[] = data.data;
+  console.log(marqueeDataList);
+  return (
+    <div className="bg-[#c10007] text-white">
+      <div className="max-w-7xl mx-auto  flex items-center  ">
+        <div className=" py-2 px-4 bg-red-800">সর্বশেষ</div>
+        <MarqueeText duration={14} direction="right" className="py-2">
+          {marqueeDataList.map((marqueeData) => (
+            <span key={marqueeData.id}>
+              <span>{marqueeData.title}</span>
+              <span className="mx-3">•</span>
+            </span>
+          ))}
+        </MarqueeText>
+      </div>
+    </div>
+  );
+};
+
+export default Marquee;
