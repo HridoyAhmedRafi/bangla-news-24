@@ -1,9 +1,74 @@
+import MainNews from "@/components/home/MainNews";
 import Marquee from "@/components/home/Marquee";
+import NewsCard from "@/components/home/NewsCard";
+import { ImainNews } from "@/types/mainNews";
+import { MostRead } from "@/types/mostRead";
+interface IOtherSection {
+  articles: ImainNews[];
+  count: number;
+  curationId: string;
+  curationType: string;
+  link: string | null;
+  title: string;
+}
 
-export default function Home() {
+export default async function Home() {
+  // most read
+  const resMostRead = await fetch(
+    "https://news-api-v2.vercel.app/api/news/most-read",
+  );
+  const dataMostRead = await resMostRead.json();
+  const mostReadsData = dataMostRead.data;
+
+  //
+  const res = await fetch("https://news-api-v2.vercel.app/api/news/sections");
+  const data = await res.json();
+  const sections = data.data;
+  const mainNews = sections[0].articles;
+  const othersSections = sections.slice(1);
+
+  const filtedSections = othersSections.filter(
+    (section: IOtherSection) => section.count !== 1 && section.count !== 6,
+  );
+
   return (
-    <div >
+    <div>
       <Marquee></Marquee>
+
+      <div className="grid grid-cols-3 max-w-7xl mx-auto gap-4 mt-8">
+        <div className="col-span-2 ">
+          <MainNews mainNews={mainNews}></MainNews>
+          <div className="grid gap-4 mt-8">
+            {filtedSections.map((otherSections: IOtherSection) => (
+              <div className=" pb-2 " key={otherSections.curationId}>
+                <h1 className="border-b-2 border-red-800 mb-3 font-semibold text-[18px]">
+                  {otherSections.title}
+                </h1>
+                <div className="grid grid-cols-3 gap-4">
+                  {otherSections.articles.map((News) => (
+                    <NewsCard key={News.id} News={News}></NewsCard>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-span-1  ">
+          <div className="text-[16px] font-semibold space-y-3 border border-gray-200 rounded-2xl px-4 py-4 ">
+            <h1 className="text-[20px] font-semibold">সর্বাধিক পঠিত</h1>
+            {mostReadsData.map((mostReadData: MostRead, indx: number) => (
+              <div key={mostReadData.id}>
+                <span className="text-red-700 text-[20px] mr-2">
+                  {" "}
+                  {indx + 1}.
+                </span>
+                {mostReadData.title}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

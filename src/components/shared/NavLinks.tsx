@@ -1,4 +1,4 @@
-import { INavLinks } from "@/types/nav.links";
+import { INavLinks } from "@/types/navLinks";
 import Link from "next/link";
 
 const NavLinks = async () => {
@@ -9,7 +9,7 @@ const NavLinks = async () => {
   const filteredLinks = links.filter((link) => link.scrapable !== false);
 
   return (
-    <div className="flex items-center justify-center gap-4 mt-3 ">
+    <div className="  px-4 max-w-7xl mx-auto flex items-center justify-center gap-4 ">
       <Link href={"/"}>হোম</Link>
       {filteredLinks.map((link, indx) => (
         <Link href={link.slug} key={indx}>

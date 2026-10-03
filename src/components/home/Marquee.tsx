@@ -6,7 +6,7 @@ const Marquee = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/news?limit=10");
   const data = await res.json();
   const marqueeDataList: IMarqueeLinks[] = data.data;
-  console.log(marqueeDataList);
+
   return (
     <div className="bg-[#c10007] text-white">
       <div className="max-w-7xl mx-auto  flex items-center  ">
