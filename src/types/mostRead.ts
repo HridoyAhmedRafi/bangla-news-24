@@ -1,4 +1,4 @@
-export interface MostRead {
+export interface IMostRead {
   id: string;
   title: string;
   description: string | null;
