@@ -5,7 +5,7 @@ import Link from "next/link";
 const NewsCard = ({ News }: { News: ImainNews }) => {
   return (
     <Link href={`/news/${News.id}`}>
-      <div className="  card bg-base-100 h-full w-full shadow-sm ">
+      <div className=" card bg-base-100 h-full w-full shadow-sm ">
         <figure>
           <Image
             width={500}

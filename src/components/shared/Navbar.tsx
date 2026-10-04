@@ -28,7 +28,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-1">
           <button className="btn btn-ghost bg-none border-none text-[#626057]">
             সাইন ইন
           </button>

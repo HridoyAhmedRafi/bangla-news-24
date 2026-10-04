@@ -26,18 +26,16 @@ export default async function Home() {
 
   return (
     <div>
-      {/* <Marquee></Marquee> */}
-
-      <div className="grid grid-cols-3 max-w-7xl mx-auto gap-4 mt-8">
-        <div className="col-span-2 ">
+      <div className="grid grid-cols-1  md:grid-cols-3 max-w-7xl mx-auto md:gap-4 mt-8">
+        <div className="col-span-2  ">
           <MainNews mainNews={mainNews}></MainNews>
           <div className="grid gap-4 mt-8">
             {filtedSections.map((otherSections: IOtherSection) => (
-              <div className=" pb-2 " key={otherSections.curationId}>
+              <div className=" p-4 pb-2 " key={otherSections.curationId}>
                 <h1 className="border-b-2 border-red-800 mb-3 font-semibold text-[18px]">
                   {otherSections.title}
                 </h1>
-                <div className="grid grid-cols-3 gap-4">
+                <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
                   {otherSections.articles.map((News) => (
                     <NewsCard key={News.id} News={News}></NewsCard>
                   ))}
