@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../../../public/logo.webp";
 import NavLinks from "./NavLinks";
+import Buttons from "../user-info/Buttons";
 
 const Navbar = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -9,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="  px-4 py-3 relative max-w-7xl mx-auto flex items-center justify-center">
+      <div className="  px-4 py-4 relative max-w-7xl mx-auto flex items-center justify-center">
         <div className="flex items-center gap-2">
           <Image
             src={logo}
@@ -28,15 +29,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-1">
-          <button className="btn btn-ghost bg-none border-none text-[#626057]">
-            সাইন ইন
-          </button>
-
-          <button className="btn rounded  bg-red-700 text-white">
-            সাইন আপ
-          </button>
-        </div>
+        <Buttons></Buttons>
       </div>
 
       <NavLinks></NavLinks>

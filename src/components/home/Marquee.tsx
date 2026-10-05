@@ -9,7 +9,7 @@ const Marquee = async () => {
   const marqueeDataList: IMarqueeLinks[] = data.data;
 
   return (
-    <div className="bg-[#c10007] text-white sticky top-0 z-50">
+    <div className="bg-[#c10007] text-white sticky top-0 z-50 mt-5">
       <div className="max-w-7xl mx-auto  flex items-center  ">
         <div className=" py-2 px-4 bg-red-800">সর্বশেষ</div>
         <MarqueeText duration={14} direction="right" className="py-2">
