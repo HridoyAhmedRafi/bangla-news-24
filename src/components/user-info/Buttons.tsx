@@ -36,9 +36,9 @@ const Buttons = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center">
+          <div className="flex items-center gap-1">
             <Link href="/sign-in">
-              <button className="btn btn-ghost bg-none border-none text-[#626057]">
+              <button className="btn btn-ghost bg-none border-gray-400  text-[#626057]">
                 সাইন ইন
               </button>
             </Link>
@@ -53,55 +53,59 @@ const Buttons = () => {
       </div>
 
       {/* Mobile */}
-      <div className="md:hidden">
-        {user ? (
-          <button
-            onClick={handleSignOut}
-            className="btn cursor-pointer rounded bg-red-700 text-white"
+      <div className="md:hidden dropdown dropdown-end">
+        <button tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            Sign Out
-          </button>
-        ) : (
-          <div className="dropdown dropdown-end">
-            <button
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
 
-            <div
-              tabIndex={0}
-              className="dropdown-content mt-3 z-50 flex items-center gap-1 rounded-box bg-base-100 p-2 shadow-lg"
-            >
+        <div
+          tabIndex={0}
+          className="dropdown-content mt-3 z-50 w-48 rounded-box bg-base-100 p-2 shadow-lg"
+        >
+          {user ? (
+            <div className="flex flex-col gap-2">
+              <Link href="/profile">
+                <button className="btn w-full whitespace-nowrap border-gray-400 text-red-800">
+                  {user.name}
+                </button>
+              </Link>
+
+              <button
+                onClick={handleSignOut}
+                className="btn w-full whitespace-nowrap cursor-pointer rounded bg-red-700 text-white"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2">
               <Link href="/sign-in">
-                <button className="btn btn-ghost bg-none border-none text-[#626057]">
+                <button className="btn w-full whitespace-nowrap btn-ghost border-gray-400 text-[#626057]">
                   সাইন ইন
                 </button>
               </Link>
 
               <Link href="/sign-up">
-                <button className="btn rounded bg-red-700 text-white">
+                <button className="btn w-full whitespace-nowrap rounded bg-red-700 text-white">
                   সাইন আপ
                 </button>
               </Link>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
