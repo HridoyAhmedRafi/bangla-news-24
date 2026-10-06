@@ -77,14 +77,6 @@ const SignUpPage = () => {
               placeholder="আপনার পাসওয়ার্ড লিখুন"
             />
 
-            {/* <label className="label font-medium mt-2">প্রোফাইল ছবি</label>
-            <input
-              type="file"
-              name="profilePicture"
-              accept="image/*"
-              className="file-input file-input-bordered w-full"
-            /> */}
-
             <button
               type="submit"
               className="btn bg-red-700 text-white w-full mt-5"
