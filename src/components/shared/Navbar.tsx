@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className=" px-4 py-4 relative max-w-7xl mx-auto flex items-center justify-between md:justify-center">
+      <div className="px-4 py-4 relative max-w-7xl mx-auto flex items-center justify-between md:justify-center">
         <div className="flex items-center gap-2">
           <Image
             src={logo}
@@ -20,7 +20,7 @@ const Navbar = () => {
             className="h-10 w-10"
           />
 
-          <div className="flex flex-col">
+          <div className="hidden md:flex flex-col">
             <h1 className="text-red-700 text-[22px] font-bold leading-none">
               Bangla News 24
             </h1>
@@ -29,7 +29,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <Buttons></Buttons>
+        <Buttons />
       </div>
 
       <NavLinks></NavLinks>
