@@ -33,13 +33,13 @@ const SignUpPage = () => {
   };
 
   const handleSignUpWithGoogle = async () => {
-    const data = await signIn.social({
+    await signIn.social({
       provider: "google",
     });
   };
 
   const handleSignUpWithGithub = async () => {
-    const data = await signIn.social({
+    await signIn.social({
       provider: "github",
     });
   };
