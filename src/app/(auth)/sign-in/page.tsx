@@ -29,12 +29,12 @@ const SignInPage = () => {
   };
 
   const handleSignInWithGoogle = async () => {
-    const data = await signIn.social({
+    await signIn.social({
       provider: "google",
     });
   };
   const handleSignInWithGithub = async () => {
-    const data = await signIn.social({
+    await signIn.social({
       provider: "github",
     });
   };
@@ -78,11 +78,11 @@ const SignInPage = () => {
               <div className="h-px flex-1 bg-base-content/20"></div>
             </div>
 
-            <div className="flex justify-around">
+            <div className="flex flex-col sm:flex-row justify-around gap-3">
               <button
                 type="button"
                 onClick={handleSignInWithGoogle}
-                className="btn "
+                className="btn w-full sm:w-50 bg-blue-500 text-white"
               >
                 Sign In With Google
               </button>
@@ -90,7 +90,7 @@ const SignInPage = () => {
               <button
                 type="button"
                 onClick={handleSignInWithGithub}
-                className="btn bg-[#202124] text-white "
+                className="btn w-full sm:w-50 bg-[#202124] text-white"
               >
                 Sign Up With GitHub
               </button>

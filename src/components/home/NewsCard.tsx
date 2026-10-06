@@ -12,7 +12,7 @@ const NewsCard = ({ News }: { News: ImainNews }) => {
             height={500}
             className="w-full h-full"
             src={News.imageUrl}
-            alt={News.imageAlt}
+            alt="image"
           />
         </figure>
         <div className="flex justify-between flex-col card-body px-4">
